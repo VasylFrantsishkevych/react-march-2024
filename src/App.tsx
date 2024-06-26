@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import UserComponent from "./components/UserComponent/UserComponent";
+import SimpsonComponent from "./components/SimpsonComponent/SimpsonComponent";
+import RickAndMortyComponent from "./components/RickAndMortyComponent/RickAndMortyComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div>
+            <UserComponent name={'Olia'} surname={'Tic'} age={25} status={true}/>
+            <hr/>
+            <SimpsonComponent
+                character={'Bart Simpson'}
+                quote={'Eat my shorts'}
+                img={'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png'}
+            />
+            <hr/>
+            <RickAndMortyComponent
+                name={'Rick Sanchez'}
+                status={'Alive'}
+                species={'Human'}
+                gender={'Male'}
+                img={'https://upload.wikimedia.org/wikipedia/en/a/a6/Rick_Sanchez.png'}
+            />
+        </div>
+    );
+};
 
 export default App;
+
