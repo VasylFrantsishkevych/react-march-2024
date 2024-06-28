@@ -21,6 +21,7 @@ const App = () => {
                 gender={'Male'}
                 img={'https://upload.wikimedia.org/wikipedia/en/a/a6/Rick_Sanchez.png'}
             />
+            <div></div>
         </div>
     );
 };
