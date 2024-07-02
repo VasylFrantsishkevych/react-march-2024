@@ -1,0 +1,10 @@
+.users-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.users-list_title {
+    text-align: center;
+}
