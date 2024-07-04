@@ -1,8 +1,8 @@
-export type IResponseUsers = {
+export interface IResponseUsers  {
     users: IUser[];
 }
 
-export type IUser = {
+export interface IUser  {
     id: number,
     firstName: string,
     lastName: string,

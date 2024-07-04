@@ -52,7 +52,7 @@ class UsersComponent extends Component<{}, State> {
                     }
                 </div>
                 <hr/>
-               <PostsComponent posts={this.state.postsForUserById}/>
+                <PostsComponent posts={this.state.postsForUserById}/>
             </div>
         );
     }

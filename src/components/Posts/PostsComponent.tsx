@@ -16,8 +16,13 @@ class PostsComponent extends Component<Props> {
         return (
             <div className={'posts-list'}>
                 {
-                    this.props.posts.map(post => <PostComponent key={post.id} post={post}/>)
+                    this.props.posts.length > 0
+                        ? this.props.posts.map(post => <PostComponent key={post.id} post={post}/>)
+                        : <h3>Цей користувач ще немає постів</h3>
                 }
+                {/*{*/}
+                {/*    this.props.posts.map(post => <PostComponent key={post.id} post={post}/>)*/}
+                {/*}*/}
             </div>
         );
     }
