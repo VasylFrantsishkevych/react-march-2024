@@ -1,26 +1,17 @@
+// Виконуємо класовими компонентами
+// https://dummyjson.com/docs/users
+// отримати та вивести інфу по всіх юзерах. Для запитів використовуємо axios та розносимо логіку в сервіси
+// Структура компонентів : App - Users- User
+// в компоненті User зробити кнопку при натсиканні на яку відбувається стейт ліфтінг ід користувача в батьківську компоненту.
+// В батьківській компоненті вивести всі пости обраного юзера (https://dummyjson.com/docs/posts  Get all posts by user id)
+
 import React from 'react';
-import UserComponent from "./components/UserComponent/UserComponent";
-import SimpsonComponent from "./components/SimpsonComponent/SimpsonComponent";
-import RickAndMortyComponent from "./components/RickAndMortyComponent/RickAndMortyComponent";
+import UsersComponent from "./components/Users/UsersComponent";
 
 const App = () => {
     return (
         <div>
-            <UserComponent name={'Olia'} surname={'Tic'} age={25} status={true}/>
-            <hr/>
-            <SimpsonComponent
-                character={'Bart Simpson'}
-                quote={'Eat my shorts'}
-                img={'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png'}
-            />
-            <hr/>
-            <RickAndMortyComponent
-                name={'Rick Sanchez'}
-                status={'Alive'}
-                species={'Human'}
-                gender={'Male'}
-                img={'https://upload.wikimedia.org/wikipedia/en/a/a6/Rick_Sanchez.png'}
-            />
+            <UsersComponent/>
         </div>
     );
 };
