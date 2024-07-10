@@ -18,7 +18,7 @@ const Post: FC<IProps> = ({ post }) => {
       </p>
       <p>
         {post.body}
-      </p>
+      </p> 
     </div>
   );
 };
