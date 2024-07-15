@@ -16,14 +16,14 @@ const Posts = () => {
   const createPost = (newPost: IPost) => {
     setPosts([...posts, newPost]);
   };
-console.log(posts.reverse)
+  
   return (
     <div className={"posts-list"}>
-      <div className={'form'}>
-      <Form createPost={createPost}/> 
-      </div> 
-      {posts.map((post) => (
-        <Post key={post.id} post={post}/>
+      <div className={"form"}>
+        <Form createPost={createPost} />
+      </div>
+      {posts.sort((a, b) => b.id - a.id).map((post) => (
+        <Post key={post.id} post={post} />
       ))}
     </div>
   );
