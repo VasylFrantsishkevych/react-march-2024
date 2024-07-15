@@ -1,20 +1,32 @@
-import React, {FC} from 'react';
+import React, { useEffect, useState } from "react";
+
+import { IPost } from "../../models/post.model";
+import "./Posts.css";
+import { postService } from "../../services";
 import Post from "../Post/Post";
-import {IPost} from "../../models/post.model";
-import './Posts.css';
+import Form from "../Form/Form";
 
-interface IProps {
-    posts: IPost[],
-}
+const Posts = () => {
+  const [posts, setPosts] = useState<IPost[]>([]);
 
-const Posts: FC<IProps> = ({posts}) => {
-    return (
-        <div className={'posts-list'}>
-            {
-                posts.map(post => <Post key={post.id} post={post}/>)
-            }
-        </div>
-    );
+  useEffect(() => {
+    postService.getAll().then((posts) => setPosts([...posts]));
+  }, []);
+
+  const createPost = (newPost: IPost) => {
+    setPosts([...posts, newPost]);
+  };
+console.log(posts.reverse)
+  return (
+    <div className={"posts-list"}>
+      <div className={'form'}>
+      <Form createPost={createPost}/> 
+      </div> 
+      {posts.map((post) => (
+        <Post key={post.id} post={post}/>
+      ))}
+    </div>
+  );
 };
 
 export default Posts;

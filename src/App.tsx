@@ -1,10 +1,13 @@
-import React from 'react';
-import Users from "./components/Users/Users";
+// потрібно на jsonplaceholder відправити об'єкт post
+// відповідно, для цього вам потрібно його створити. Створення об'єкту повинно відбуватись за допомоги форми з useForm та валідацією.
+// Якщо ви не пам'ятаєте як відправляти данні на jsonplaceholder подивіться його документації
+
+import Posts from './components/Posts/Posts';
 
 const App = () => {
     return (
         <div>
-            <Users/>
+            <Posts/>
         </div>
     );
 };
