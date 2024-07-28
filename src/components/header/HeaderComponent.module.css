@@ -1,0 +1,13 @@
+.nav_menu ul {
+   display: flex;
+   column-gap: 25px;
+   list-style: none;
+   justify-content: center;
+}
+.nav_menu a {
+   text-decoration: none;
+   font-size: 30px;
+}
+.nav_menu a:hover {
+   color: red;
+}
