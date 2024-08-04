@@ -1,0 +1,12 @@
+.menu {
+   width: 100%;
+}
+
+.menu ul {
+   display: flex;
+   column-gap: 25px;
+   list-style: none;
+   text-decoration: none;
+   justify-content: center;
+   font-size: 25px;
+}
