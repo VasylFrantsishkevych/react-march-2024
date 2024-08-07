@@ -1,0 +1,24 @@
+.post-details-card {
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 20px;
+   margin-bottom: 20px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.post-details-card h2 {
+   margin-top: 0;
+   text-align: center;
+}
+.post-details-card p {
+   margin: 5px 0;
+}
+.post-details-card span {
+   font-weight: bold;
+}
+.btn {
+   margin: 0 auto;
+}

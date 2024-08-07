@@ -6,18 +6,15 @@ import { userActions } from "../../redux/slices/user.slice";
 import { User } from "../../components";
 
 const UsersPage = () => {
-  let {
-    userSlice: { users, isLoaded },
-  } = useAppSelector((state) => state);
-
+  let {users, isLoaded} = useAppSelector((state) => state.userSlice);
   let dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(userActions.loadUsers());
+    dispatch(userActions.getUsers());
   }, []);
 
   return (
-    <div>
+    <div style={{display: "flex", flexDirection: 'column', alignItems: "center"}}>
       {!isLoaded && <div>Loading in process....</div>}
 
       {users.map((user) => (

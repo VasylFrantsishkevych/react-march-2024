@@ -1,42 +1,52 @@
-import {createSlice, isFulfilled} from "@reduxjs/toolkit";
-import { IUser } from "../../models";
-import { loadUsers } from "../reducers/user.extra.reducers";
+import {createSlice, isRejected} from "@reduxjs/toolkit";
+import { IPost, IUser } from "../../models";
+import { getPostsOfUser, getUser, getUsers } from "../reducers";
 
 
 type UserSliceType = {
     users: IUser[],
-    isLoaded: boolean
+    isLoaded: boolean,
+    error: string,
+    user: IUser | null,
+    postsOfUser: IPost[],
 }
 
 const userInitState: UserSliceType = {
     users: [],
-    isLoaded: false
+    isLoaded: false,
+    error: '',
+    user: null,
+    postsOfUser: [],
 }
 
 export const userSlice = createSlice({
     name: "usersSlice",
     initialState: userInitState,
     reducers: {
-        xxx: (state) => {
-            state.isLoaded = true
-        }
     },
     extraReducers: (builder) =>
         builder
-            .addCase(loadUsers.fulfilled, (state, action) => {
+            .addCase(getUsers.fulfilled, (state, action) => {
                 state.users = action.payload;
                 state.isLoaded = true;
             })
-            .addCase(loadUsers.rejected, (state, action) => {
-
+            .addCase(getUser.fulfilled, (state, action) => {
+                state.user = action.payload;
+                state.isLoaded = true;
             })
-            .addMatcher(isFulfilled(loadUsers), (state, action) => {
-                // state.isLoaded = true;
+            .addCase(getPostsOfUser.fulfilled, (state, action) => {
+                state.postsOfUser = action.payload;
+                state.isLoaded = true;
+            })
+            .addMatcher(isRejected(getUsers, getUser, getPostsOfUser), (state, action) => {
+                state.error = action.payload as string;
+                state.isLoaded = true;
             })
 });
 
 export const userActions = {
     ...userSlice.actions,
-    loadUsers
-
+    getUsers,
+    getUser,
+    getPostsOfUser
 }

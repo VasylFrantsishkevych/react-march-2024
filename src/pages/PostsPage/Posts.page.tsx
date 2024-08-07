@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
-import { Post } from "../../components";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { postActions } from "../../redux/slices/post.slice";
+import { PostDetails } from "../../components";
 
 const PostsPage = () => {
-   let {
-      postSlice: { posts, isLoaded },
-    } = useAppSelector((state) => state);
+   const { posts, isLoaded } = useAppSelector((state) => state.postSlice);
   
     let dispatch = useAppDispatch();
   
     useEffect(() => {
-      dispatch(postActions.loadPosts());
+      dispatch(postActions.getPosts());
     }, []);
 
    return (
       <div>
+         {!isLoaded && <div>Loading in process....</div>}
          {
-            posts.map(post => <Post key={post.id} post={post}/>)
+            posts.map(post => <PostDetails key={post.id} post={post}/>)
          }
       </div>
    )

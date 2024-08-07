@@ -2,33 +2,24 @@ import { FC } from "react";
 
 import { IUser } from "../../models";
 import "./User.css";
+import { useNavigate } from "react-router-dom";
 
 interface IProps {
   user: IUser;
 }
 
 const User: FC<IProps> = ({ user }) => {
+
+  const navigate = useNavigate();
+
   return (
     <div className={"user-card"}>
       <h2>
-        {user.name} - {user.username}
+        {user.name}
       </h2>
-      <p>
-        <span>ID:</span>
-        {user.id}
-      </p>
-      <p>
-        <span>Стать:</span>
-        {user.website}
-      </p>
-      <p>
-        <span>Email:</span>
-        {user.email}
-      </p>
-      <p>
-        <span>Телефон:</span>
-        {user.phone}
-      </p>
+      <div className={'buttons'}>
+        <button onClick={() => navigate(`/users/${user.id}`)}>User Details</button>
+      </div>
     </div>
   );
 };
